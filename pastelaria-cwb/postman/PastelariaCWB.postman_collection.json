@@ -1,0 +1,90 @@
+{
+  "info": {
+    "name": "Pastelaria CWB API",
+    "description": "Testes da API REST da Pastelaria CWB (Cliente, Produto, Pedido).",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:8080" }
+  ],
+  "item": [
+    {
+      "name": "Cliente",
+      "item": [
+        {
+          "name": "POST - Criar Cliente",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"nome\": \"RaissaMazurana3409138\",\n  \"clienteDesde\": \"2026-10-07\"\n}" },
+            "url": "{{baseUrl}}/clientes"
+          }
+        },
+        { "name": "GET - Listar Clientes", "request": { "method": "GET", "url": "{{baseUrl}}/clientes" } },
+        { "name": "GET - Cliente por ID", "request": { "method": "GET", "url": "{{baseUrl}}/clientes/1" } },
+        {
+          "name": "PUT - Atualizar Cliente",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"nome\": \"RaissaMazurana3409138\",\n  \"clienteDesde\": \"2026-10-01\"\n}" },
+            "url": "{{baseUrl}}/clientes/1"
+          }
+        },
+        { "name": "DELETE - Apagar Cliente", "request": { "method": "DELETE", "url": "{{baseUrl}}/clientes/2" } }
+      ]
+    },
+    {
+      "name": "Produto",
+      "item": [
+        {
+          "name": "POST - Criar Produto",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"nome\": \"Pastel de Frango Catupiry\",\n  \"preco\": 9.99,\n  \"estoque\": true\n}" },
+            "url": "{{baseUrl}}/produtos"
+          }
+        },
+        { "name": "GET - Listar Produtos", "request": { "method": "GET", "url": "{{baseUrl}}/produtos" } },
+        { "name": "GET - Produto por ID", "request": { "method": "GET", "url": "{{baseUrl}}/produtos/1" } },
+        {
+          "name": "PUT - Atualizar Produto",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"nome\": \"Pastel de Frango Catupiry\",\n  \"preco\": 10.49,\n  \"estoque\": true\n}" },
+            "url": "{{baseUrl}}/produtos/1"
+          }
+        },
+        { "name": "DELETE - Apagar Produto", "request": { "method": "DELETE", "url": "{{baseUrl}}/produtos/2" } }
+      ]
+    },
+    {
+      "name": "Pedido",
+      "item": [
+        {
+          "name": "POST - Criar Pedido",
+          "request": {
+            "method": "POST",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"clienteId\": 1,\n  \"produtoId\": 1,\n  \"quantidade\": 5\n}" },
+            "url": "{{baseUrl}}/pedidos"
+          }
+        },
+        { "name": "GET - Listar Pedidos", "request": { "method": "GET", "url": "{{baseUrl}}/pedidos" } },
+        { "name": "GET - Pedido por ID", "request": { "method": "GET", "url": "{{baseUrl}}/pedidos/1" } },
+        {
+          "name": "PUT - Atualizar Pedido",
+          "request": {
+            "method": "PUT",
+            "header": [{ "key": "Content-Type", "value": "application/json" }],
+            "body": { "mode": "raw", "raw": "{\n  \"clienteId\": 1,\n  \"produtoId\": 1,\n  \"quantidade\": 7\n}" },
+            "url": "{{baseUrl}}/pedidos/1"
+          }
+        },
+        { "name": "DELETE - Apagar Pedido", "request": { "method": "DELETE", "url": "{{baseUrl}}/pedidos/2" } }
+      ]
+    }
+  ]
+}
